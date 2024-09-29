@@ -1,0 +1,35 @@
+
+<div class="container is-fluid">
+	<div class="notification">
+		<h1 class="title">Posts</h1>
+	</div>
+
+<div class="columns is-multiline">
+	<% @posts.each do |post| %>
+		<div class="column is-one-third">
+			<div class="card">
+				<% if post.image.attached? %>
+					<div class="card-image">
+						<%= image_tag post.image,class:"card-image-top" %>
+					</div>
+				<% end %>	
+		
+<div class="card-content">
+	div class = "content">
+		<h1><%= post.title %></h1>
+		<p><%= post.body %></p>
+		</div>
+	  </div>
+
+	<footer class="card-footer">
+      <a href=<%= post_path(post) %> class="card-footer-item">Show</a>
+	  <a href=<%= edith_post_path(post) %> class="card-footer-item">Edit</a>
+	  <%= link_to 'Destroy', post, method: :delete, data:{ confirm: 'Are you sure?'}, class: "card-footer-item" %>
+	</footer>
+		</div>
+	  </div>
+
+	<% end %>	
+  </div>
+	<%= link_to 'New Post', new_post_path, class: "button is-primary" %>	
+</div>
